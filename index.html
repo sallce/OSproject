@@ -1,15 +1,133 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>OS project</title>
+
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-  <!-- uncomment lines below to include extra p5 libraries -->
   <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
   <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+  <script language="javascript" type="text/javascript" src="simulators/cscanyi.js"></script>
+  <script language="javascript" type="text/javascript" src="simulators/fcfsyi.js"></script>
+  <script language="javascript" type="text/javascript" src="simulators/looksh.js"></script>
+  <script language="javascript" type="text/javascript" src="simulators/scanya.js"></script>
+  <script language="javascript" type="text/javascript" src="simulators/sstfsh.js"></script>
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
-  <!-- this line removes any default padding and style. you might only need one of these values set. -->
-  <style> body {padding: 0; margin: 0;} </style>
-</head>
 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+  
+  .conCenter {
+    width: 50%;
+    height: 100%;
+    margin: 20% auto;
+    float: none;
+  }
+  .inCenter {
+    text-align: center;
+  }
+</style>
+</head>
 <body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CSCI 5573</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <div id="context" class="conCenter">
+      <h1 class="inCenter">Operating System project</h1>
+      <p class="inCenter">Yang Han;Yachao Shang;Yi Li</p>
+      <p class="inCenter">
+        <a href="#" id="start" class="btn btn-lg btn-default">Start Demo</a>
+      </p>
+  </div>
+   <div id = "formAndDemo" hidden>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleSelect1">Example select</label>
+          <select class="form-control" id="exampleSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <fieldset class="form-group">
+          <legend>Radio buttons</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+              Option one is this and that&mdash;be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+          <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+              Option two can be something else and selecting it will deselect option one
+            </label>
+          </div>
+          <div class="form-check disabled">
+          <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+              Option three is disabled
+            </label>
+          </div>
+        </fieldset>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Check me out
+          </label>
+        </div>
+        
+      </form>
+      <button id="run" class="btn btn-primary">Submit</button>
+      <div id = "demo">
+      </div>
+    </div>
+  </div>
+</div>
+    <script>
+      $(document).ready(function(){
+        $("#formAndDemo").hide();
+        $("#context").show();
+          $("#start").click(function(){
+              $("#context").fadeOut("fast",function(){
+                $("#formAndDemo").fadeIn("slow");
+              });
+          });
+
+        $("#run").click(function(){
+          run = true;
+        });
+
+      });
+    </script>
 </body>
 </html>
+
