@@ -41,15 +41,35 @@ function draw() {
 	  if(selection == 1){
 	  	fcfsyi.display();
 	  	fcfsyi.update();
+	  	if(needOrder){
+	  		fcfsyi.order();
+	  		needOrder = false;
+	  	}
+
 	  }else if(selection == 2){
 	  	sstfsh.display();
 	  	sstfsh.update();
+	  	if(needOrder){
+	  		sstfsh.order();
+	  		needOrder = false;
+	  	}
+
 	  }else if(selection == 3){
 	  	scanya.display();
 	  	scanya.update();
+	  	if(needOrder){
+	  		scanya.order();
+	  		needOrder = false;
+	  	}
+
 	  }else if(selection == 4){
 	  	cscanyi.display();
 	  	cscanyi.update();
+	  	if(needOrder){
+	  		cscanyi.order();
+	  		needOrder = false;
+	  	}
+
 	  }else if(selection == 5){
 	  	looksh.display();
 	  	looksh.update();
