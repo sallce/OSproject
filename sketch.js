@@ -4,7 +4,8 @@ var needOrder = true;
 var selection = 1;
 var initialArray = [];
 var pnumber = 0;
-var startPoint = Math.floor((Math.random() * 900) + 10);
+var startPoint = Math.floor((Math.random() * 80) + 10);
+var restart = false;
 var sstfsh;
 var scanya;
 var cscanyi;
@@ -13,19 +14,28 @@ var looksh;
 
 
 function setup() {
-	var canva = createCanvas(1000, 400);
+	var canva = createCanvas(1000, 600);
 	canva.parent("demo")
-	sstfsh = new Sstfsh(initialArray,pnumber,startPoint);
-	scanya = new Scanya(initialArray,pnumber,startPoint);
-	cscanyi = new Cscanyi(initialArray,pnumber,startPoint);
-	fcfsyi = new Fcfsyi(initialArray,pnumber,startPoint);
-	looksh = new Looksh(initialArray,pnumber,startPoint);
+	fcfsyi = new Fcfsyi(initialArray,startPoint);
+	sstfsh = new Sstfsh(initialArray,startPoint);
+	scanya = new Scanya(initialArray,startPoint);
+	cscanyi = new Cscanyi(initialArray,startPoint);
+	looksh = new Looksh(initialArray,startPoint);
 }
 
 function draw() {
 	background(0);
 	strokeWeight(4);
 	stroke(colo);
+	if(restart == true){
+		startPoint = Math.floor((Math.random() * 80) + 10);
+		fcfsyi = new Fcfsyi(initialArray,startPoint);
+		sstfsh = new Sstfsh(initialArray,startPoint);
+		scanya = new Scanya(initialArray,startPoint);
+		cscanyi = new Cscanyi(initialArray,startPoint);
+		looksh = new Looksh(initialArray,startPoint);
+		restart = false;
+	}
 	if(run){
 
 	  if(selection == 1){

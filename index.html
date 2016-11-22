@@ -102,12 +102,11 @@
           pnumber = $("#processNumber").val();
 
           for(var i = 0; i < pnumber; i ++){
-            var burst = Math.floor((Math.random() * 900) + 10);
-            var locations = Math.floor((Math.random() * 900) + 10);
+            var burst = Math.floor((Math.random() * 100) + 1);
+            var locations = Math.floor((Math.random() * 85) + 5);
             $('#myTable tr:last').after('<tr><td>'+(i)+'</td><td>'+burst+'</td><td>'+locations+'</td></tr>');
             initialArray[i] = locations;
           }
-          initialArray.sort();
 
           $("#showProcess").fadeIn("slow");
         });
@@ -133,9 +132,8 @@
         $("#reset").click(function(){
            $("#myTable").find("tr:gt(0)").remove();
            initialArray = [];
-           $("#showProcess").fadeOut("slow");
-           $("#processNumber").val() = '';
-
+           $("#showProcess").fadeOut("slow");  
+           restart = true;
         });
 
       });
