@@ -135,7 +135,6 @@ function Looksh(iniArray,startPoint) {//set up initialization properties
       this.totalMove = 0;
     }
    
-    alert(this.totalMove);
 
   }
 
