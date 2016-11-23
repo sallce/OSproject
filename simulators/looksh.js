@@ -24,6 +24,7 @@ function Looksh(iniArray,startPoint) {//set up initialization properties
         //ellipse(this.before[this.before.length-1]*10,this.depth*1, 10, 10);
         textSize(14);
         text(this.startPoint, this.startPoint*10 + 5, 10);
+
         var j = 0
         var intCurrent = this.current.toFixed(0);
 
@@ -34,21 +35,30 @@ function Looksh(iniArray,startPoint) {//set up initialization properties
         }
         var i = this.before.length - 1;
 
-        while(j > 0){
+        if(this.before.length>1){
 
-          line(this.before[i]*10, this.depth*(this.before.length-i),this.before[i-1]*10,this.depth*(this.before.length-i+1));
+          while(j > 0){
 
-          ellipse(this.before[i]*10,this.depth*(this.before.length-i), 10, 10);
-          textSize(14);
-          text(this.before[i], this.before[i]*10 + 5, this.depth*(this.before.length-i));
+            line(this.before[i]*10, this.depth*(this.before.length-i),this.before[i-1]*10,this.depth*(this.before.length-i+1));
 
-          ellipse(this.before[i-1]*10,this.depth*(this.before.length-i+1), 10, 10);
-          text(this.before[i-1], this.before[i-1]*10 + 5, this.depth*(this.before.length-i+1));
+            ellipse(this.before[i]*10,this.depth*(this.before.length-i), 10, 10);
+            textSize(14);
+            text(this.before[i], this.before[i]*10 + 5, this.depth*(this.before.length-i));
 
-          j = j - 1;
-          i = i - 1; 
+            ellipse(this.before[i-1]*10,this.depth*(this.before.length-i+1), 10, 10);
+            text(this.before[i-1], this.before[i-1]*10 + 5, this.depth*(this.before.length-i+1));
+
+            j = j - 1;
+            i = i - 1; 
          
+          }
+        }else{
+          ellipse(this.before[0]*10,this.depth*1, 10, 10);
+          textSize(14);
+          text(this.before[0], this.before[0]*10 + 5, this.depth*1);
         }
+
+        
 
         var numberOfAfterPoints = this.current - this.before.length;
         var points = 0;
@@ -60,22 +70,30 @@ function Looksh(iniArray,startPoint) {//set up initialization properties
         }
 
         var i = this.after.length - 1;
-        
-        while(points > 0){
 
-          line(this.after[i]*10, this.depth*(this.after.length-i + this.before.length),this.after[i-1]*10,this.depth*(this.after.length-i+1 +this.before.length));
+        if(this.after.length>1){
+          while(points > 0){
 
-          ellipse(this.after[i]*10,this.depth*(this.after.length-i + this.before.length), 10, 10);
+            line(this.after[i]*10, this.depth*(this.after.length-i + this.before.length),this.after[i-1]*10,this.depth*(this.after.length-i+1 +this.before.length));
+
+            ellipse(this.after[i]*10,this.depth*(this.after.length-i + this.before.length), 10, 10);
+            textSize(14);
+            text(this.after[i], this.after[i]*10 + 5, this.depth*(this.after.length-i + this.before.length));
+
+            ellipse(this.after[i-1]*10,this.depth*(this.after.length-i+1 +this.before.length), 10, 10);
+            text(this.after[i-1], this.after[i-1]*10 + 5, this.depth*(this.after.length-i+1+this.before.length));
+
+            points = points - 1;
+            i = i - 1;
+           
+          }
+        }else{
+          ellipse(this.after[0]*10,this.depth*(this.after.length+1), 10, 10);
           textSize(14);
-          text(this.after[i], this.after[i]*10 + 5, this.depth*(this.after.length-i + this.before.length));
-
-          ellipse(this.after[i-1]*10,this.depth*(this.after.length-i+1 +this.before.length), 10, 10);
-          text(this.after[i-1], this.after[i-1]*10 + 5, this.depth*(this.after.length-i+1+this.before.length));
-
-          points = points - 1;
-          i = i - 1;
-         
+          text(this.after[0], this.after[0]*10 + 5, this.depth*(this.after.length+1));
         }
+        
+        
 
         if(numberOfAfterPoints > (this.after.length + 5)){
             textSize(18);
@@ -134,7 +152,6 @@ function Looksh(iniArray,startPoint) {//set up initialization properties
     }else{
       this.totalMove = 0;
     }
-   
 
   }
 

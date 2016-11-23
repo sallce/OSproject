@@ -25,7 +25,7 @@ function setup() {
 
 function draw() {
 	background(0);
-	strokeWeight(4);
+	strokeWeight(1.5);
 	stroke(colo);
 	if(restart == true){
 		startPoint = Math.floor((Math.random() * 80) + 10);
