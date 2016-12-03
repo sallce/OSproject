@@ -126,7 +126,7 @@ function Looksh(iniArray,startPoint) {//set up initialization properties
 
     var i = 0;
     while(i < this.iniArray.length){
-      if(this.iniArray[i]<this.startPoint){
+      if(this.iniArray[i]<=this.startPoint){
         //before initial point
         this.before.push(this.iniArray[i]);
       }else{
@@ -152,7 +152,7 @@ function Looksh(iniArray,startPoint) {//set up initialization properties
     }else{
       this.totalMove = 0;
     }
-
+    
   }
 
 
